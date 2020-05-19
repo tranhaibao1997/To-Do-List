@@ -1,9 +1,14 @@
 .stroke {
     text-decoration: line-through !important;
 }
+ul
+{
+    list-style: none;
+    padding: 0;
+}
 
 body {
-    background-color: #80560c;
+    background-image: url("https://wallpaperplay.com/walls/full/2/5/4/102451.jpg");
     cursor: url("https://i.imgur.com/PP2I38w.png"), auto;
 }
 
@@ -31,6 +36,7 @@ body {
     transition-duration: 0.5s;
     width: 5.5rem;
     height: 30px;
+    margin-right: 20px;
 }
 
 #input {
@@ -53,6 +59,7 @@ button {
     background-color: #fec0d0;
     color: white;
     border: none;
+    margin-left: 10px;
 }
 
 button:hover {
@@ -64,8 +71,7 @@ button:hover {
 .tab-change {
     list-style: none;
     display: flex;
-    width: 20%;
-    justify-content: space-between;
+    justify-content: flex-start;
     padding: none;
     padding: 0px;
 }
@@ -76,6 +82,7 @@ button:hover {
     border-color: #ffc107;
     padding: 8px;
     border-radius: 21px;
+    margin-right: 20px;
 }
 
 .tab-change li span {
