@@ -24,6 +24,8 @@ function addTask() {
     document.getElementById("tab-change").innerHTML = renderTabChange(taskList)
     document.getElementById("all").classList.add("tab-active")
     tabColorChange()
+    document.getElementById("input").value=""
+    document.getElementById("priority").value=1
  
 
 }
@@ -33,6 +35,7 @@ function removeTask(index) {
     taskList.splice(index, 1)
     renderTask(taskList)
     document.getElementById("tab-change").innerHTML = `${renderTabChange(taskList)}`
+    document.getElementById("all").classList.add("tab-active")
     tabColorChange()
 }
 
