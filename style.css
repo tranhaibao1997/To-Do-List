@@ -1,0 +1,93 @@
+.stroke {
+    text-decoration: line-through !important;
+}
+
+body {
+    background-color: #80560c;
+    cursor: url("https://i.imgur.com/PP2I38w.png"), auto;
+}
+
+.to-do-list {
+    width: 60%;
+    margin: 0 auto;
+    padding: 50px;
+    margin-top: 50px;
+    background-color: antiquewhite;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175)!important;
+    border-radius: 40px;
+}
+
+.input-section {
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+}
+
+#priority {
+    font-weight: bold;
+    background-color: #fbfe7d;
+    color: #dd9716;
+    border-color: #fec0d0;
+    transition-duration: 0.5s;
+    width: 5.5rem;
+    height: 30px;
+}
+
+#input {
+    font-weight: bold;
+    background-color: #fbfe7d;
+    color: #dd9716;
+    border-color: #fec0d0;
+    transition-duration: 0.5s;
+    width: 300px;
+    height: 26px;
+}
+
+button {
+    background-color: #fbfe7d;
+    color: #fec0d0;
+    font-size: 1.7rem;
+    margin: 0;
+    padding: 0;
+    width: 3rem;
+    background-color: #fec0d0;
+    color: white;
+    border: none;
+}
+
+button:hover {
+    background-color: #fbfe7d;
+    color: #fec0d0;
+    cursor: pointer;
+}
+
+.tab-change {
+    list-style: none;
+    display: flex;
+    width: 20%;
+    justify-content: space-between;
+    padding: none;
+    padding: 0px;
+}
+
+.tab-change li {
+    color: #212529;
+    background-color: bisque;
+    border-color: #ffc107;
+    padding: 8px;
+    border-radius: 21px;
+}
+
+.tab-change li span {
+    background-color: white;
+    display: inline-block;
+    padding: .25em .4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: .25rem;
+    transition: color .15s
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/a8c4c24db6.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <div class="to-do-list">
+        <h1>TO-DO-LIST</h1>
+        <div class="input-section">
+            <select id="priority">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+
+            </select>
+            <input id="input" placeholder="add Task here...">
+            <button id="btn-add">+</button>
+        </div>
+
+
+        <ul class="tab-change" id="tab-change">
+            <li onclick="showAll()">All</li>
+            <li onclick="showDone()">Done</li>
+            <li onclick="showNotDone()">Not Done</li>
+        </ul>
+
+
+        <ul id="task-list">
+
+        </ul>
+    </div>
+
+    <script src="javascript.js"></script>
+</body>
+
+</html>
