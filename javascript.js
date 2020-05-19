@@ -1,4 +1,4 @@
-let taskList = []
+let taskList = JSON.parse(localStorage.getItem('session')) || []
 
 let inputTask = document.getElementById("input").value;
 let add = document.getElementById("btn-add");
@@ -6,6 +6,8 @@ console.log(renderTabChange(taskList))
 
 document.getElementById("tab-change").innerHTML = `${renderTabChange(taskList)}`
 tabColorChange()
+
+
 
 
 
@@ -26,7 +28,12 @@ function addTask() {
     tabColorChange()
     document.getElementById("input").value=""
     document.getElementById("priority").value=1
- 
+
+    //local storage
+    var a = [];
+    a = JSON.parse(localStorage.getItem('session')) || [];
+    a=taskList
+    localStorage.setItem('session', JSON.stringify(a));
 
 }
 
@@ -37,6 +44,12 @@ function removeTask(index) {
     document.getElementById("tab-change").innerHTML = `${renderTabChange(taskList)}`
     document.getElementById("all").classList.add("tab-active")
     tabColorChange()
+
+    //localstorage
+    var a = [];
+    a = JSON.parse(localStorage.getItem('session')) || [];
+    a=taskList
+    localStorage.setItem('session', JSON.stringify(a));
 }
 
 
@@ -142,6 +155,12 @@ let checkboxChange = (e, index) => {
     }
     document.getElementById("tab-change").innerHTML = renderTabChange(taskList)
     tabColorChange()
+
+    //localstorage
+    var a = [];
+    a = JSON.parse(localStorage.getItem('session')) || [];
+    a=taskList
+    localStorage.setItem('session', JSON.stringify(a));
     
 
 }
