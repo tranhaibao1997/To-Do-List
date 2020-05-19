@@ -5,6 +5,7 @@ let add = document.getElementById("btn-add");
 console.log(renderTabChange(taskList))
 
 document.getElementById("tab-change").innerHTML = `${renderTabChange(taskList)}`
+tabColorChange()
 
 
 
@@ -21,6 +22,9 @@ function addTask() {
 
     renderTask(taskList)
     document.getElementById("tab-change").innerHTML = renderTabChange(taskList)
+    document.getElementById("all").classList.add("tab-active")
+    tabColorChange()
+ 
 
 }
 
@@ -29,6 +33,7 @@ function removeTask(index) {
     taskList.splice(index, 1)
     renderTask(taskList)
     document.getElementById("tab-change").innerHTML = `${renderTabChange(taskList)}`
+    tabColorChange()
 }
 
 
@@ -71,14 +76,14 @@ function renderTask(taskList) {
 function renderTabChange(taskList) {
     if (taskList.length > 0) {
         return `
-        <li onclick="showAll()">All<span>${taskList.length}</span></li>
+        <li id="all" onclick="showAll()">All<span>${taskList.length}</span></li>
         <li onclick="showDone()">Done<span>${(taskList.filter(task => task.isDone == true)).length}</span></li>
         <li onclick="showNotDone()">Not Done<span>${(taskList.filter(task => task.isDone == false)).length}</span></li>
         `
     } else if (taskList.length === 0) {
         //console.log("task =0")
         return `
-            <li onclick="showAll()">All<span>0</span></li>
+            <li id="all" onclick="showAll()">All<span>0</span></li>
             <li onclick="showDone()">Done<span>0</span></li>
             <li onclick="showNotDone()">Not Done<span>0</span></li>
             `
@@ -133,6 +138,8 @@ let checkboxChange = (e, index) => {
         }
     }
     document.getElementById("tab-change").innerHTML = renderTabChange(taskList)
+    tabColorChange()
+    
 
 }
 let showAll = () => {
@@ -152,4 +159,21 @@ let showDone = () => {
 let showNotDone = () => {
     renderTask(taskList.filter(task => task.isDone === false))
 
+}
+function tabColorChange()
+{
+    let tabChangeBtn = document.querySelectorAll(".tab-change li")
+    for (let i = 0; i < tabChangeBtn.length; i++) {
+        tabChangeBtn[i].addEventListener("click", function () {
+            console.log(this)
+            if (this.classList.value === "tab-active") {
+                this.classList.remove("tab-active")
+            } else {
+                for (let k = 0; k < tabChangeBtn.length; k++) {
+                    tabChangeBtn[k].classList.remove("tab-active")
+                }
+                this.classList.add("tab-active");
+            }
+        })
+    }
 }

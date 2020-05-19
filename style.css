@@ -6,10 +6,15 @@ ul
     list-style: none;
     padding: 0;
 }
+.tab-active
+{
+    background-color: ;
+}
 
 body {
     background-image: url("https://wallpaperplay.com/walls/full/2/5/4/102451.jpg");
     cursor: url("https://i.imgur.com/PP2I38w.png"), auto;
+    font-family: cursive;
 }
 
 .to-do-list {
@@ -97,4 +102,9 @@ button:hover {
     vertical-align: baseline;
     border-radius: .25rem;
     transition: color .15s
+}
+
+.tab-active
+{
+    background-color: pink !important;
 }
