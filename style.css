@@ -1,12 +1,11 @@
 .stroke {
     text-decoration: line-through !important;
 }
-ul
-{
+
+ul {
     list-style: none;
     padding: 0;
 }
-
 
 body {
     background-image: url("https://wallpaperplay.com/walls/full/2/5/4/102451.jpg");
@@ -22,6 +21,10 @@ body {
     background-color: antiquewhite;
     box-shadow: 0 1rem 3rem rgba(0, 0, 0, .175)!important;
     border-radius: 40px;
+}
+
+.to-do-list li {
+    margin-bottom: 30px;
 }
 
 .input-section {
@@ -101,7 +104,10 @@ button:hover {
     transition: color .15s
 }
 
-.tab-active
-{
+.tab-active {
     background-color: pink !important;
+}
+
+#btn-save {
+    display: none;
 }

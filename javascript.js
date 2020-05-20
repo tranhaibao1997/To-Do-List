@@ -26,13 +26,13 @@ function addTask() {
     document.getElementById("tab-change").innerHTML = renderTabChange(taskList)
     document.getElementById("all").classList.add("tab-active")
     tabColorChange()
-    document.getElementById("input").value=""
-    document.getElementById("priority").value=1
+    document.getElementById("input").value = ""
+    document.getElementById("priority").value = 1
 
     //local storage
     var a = [];
     a = JSON.parse(localStorage.getItem('session')) || [];
-    a=taskList
+    a = taskList
     localStorage.setItem('session', JSON.stringify(a));
 
 }
@@ -48,8 +48,20 @@ function removeTask(index) {
     //localstorage
     var a = [];
     a = JSON.parse(localStorage.getItem('session')) || [];
-    a=taskList
+    a = taskList
     localStorage.setItem('session', JSON.stringify(a));
+}
+
+function editTask(index) {
+    document.getElementById("input").value = taskList[index].name;
+    // document.getElementById("btn-save").style = "display:block"
+    document.getElementById("priority").value = taskList[index].priority
+    let saveBtnClass = document.querySelectorAll("#task-list li .btn-save")
+    console.log(saveBtnClass)
+
+
+
+
 }
 
 
@@ -64,6 +76,8 @@ function renderTask(taskList) {
              <label for=${task.name}>${task.name}</label>
              ${getPriority(task.priority)}
              <button id="btn-remove" onclick="removeTask(${index})">X</button>
+             <button id="btn-edit" onclick="editTask(${index})"><i class="far fa-edit"></i></button>
+             <button class="btn-save" onclick="saveEdit(${index})"><i class="fas fa-save"></i></button>
              
     </li>
 `)
@@ -76,6 +90,8 @@ function renderTask(taskList) {
              <label for=${task.name}>${task.name}</label>
              ${getPriority(task.priority)}
              <button id="btn-remove" onclick="removeTask(${index})">X</button>
+             <button id="btn-edit" onclick="editTask(${index})"><i class="far fa-edit"></i></button>
+             <button class="btn-save" onclick="saveEdit(${index})"><i class="fas fa-save"></i></button>
             
     </li>
 `)
@@ -159,9 +175,9 @@ let checkboxChange = (e, index) => {
     //localstorage
     var a = [];
     a = JSON.parse(localStorage.getItem('session')) || [];
-    a=taskList
+    a = taskList
     localStorage.setItem('session', JSON.stringify(a));
-    
+
 
 }
 let showAll = () => {
@@ -182,11 +198,11 @@ let showNotDone = () => {
     renderTask(taskList.filter(task => task.isDone === false))
 
 }
-function tabColorChange()
-{
+
+function tabColorChange() {
     let tabChangeBtn = document.querySelectorAll(".tab-change li")
     for (let i = 0; i < tabChangeBtn.length; i++) {
-        tabChangeBtn[i].addEventListener("click", function () {
+        tabChangeBtn[i].addEventListener("click", function() {
             console.log(this)
             if (this.classList.value === "tab-active") {
                 this.classList.remove("tab-active")
@@ -198,4 +214,21 @@ function tabColorChange()
             }
         })
     }
+}
+
+function saveEdit(index) {
+    taskList[index].name = document.getElementById("input").value
+    taskList[index].priority = document.getElementById("priority").value;
+    console.log(taskList)
+    renderTask(taskList)
+    document.getElementById("tab-change").innerHTML = renderTabChange(taskList)
+    document.getElementById("input").value = ""
+    document.getElementById("priority").value = 1
+
+
+
+    var a = [];
+    a = JSON.parse(localStorage.getItem('session')) || [];
+    a = taskList
+    localStorage.setItem('session', JSON.stringify(a));
 }
